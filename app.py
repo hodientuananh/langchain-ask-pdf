@@ -11,7 +11,7 @@ from langchain.callbacks import get_openai_callback
 def main():
     openai_api_key = st.sidebar.text_input('OpenAI API Key')
     st.title("Langchain Ask PDF")
-    st.set_page_config(page_title="Ask your PDF")
+    # st.set_page_config(page_title="Ask your PDF")
     st.header("Ask your PDF 💬")
     
     # upload file
@@ -31,7 +31,7 @@ def main():
       chunks = text_splitter.split_text(text)
       
       # create embeddings
-      embeddings = OpenAIEmbeddings()
+      embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
       knowledge_base = FAISS.from_texts(chunks, embeddings)
       
       # show user input

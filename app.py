@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -10,8 +9,8 @@ from langchain.callbacks import get_openai_callback
 
 
 def main():
-    # load_dotenv()
     openai_api_key = st.sidebar.text_input('OpenAI API Key')
+    st.title("Langchain Ask PDF")
     st.set_page_config(page_title="Ask your PDF")
     st.header("Ask your PDF 💬")
     
